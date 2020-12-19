@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VHSTapeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VTCT.Data\VTCT.Data.csproj">
+      <Project>{d73f2636-8b3a-476d-b821-49d9be90f6f5}</Project>
+      <Name>VTCT.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCT.Models\VTCT.Models.csproj">
+      <Project>{930b28d0-e336-4b18-84ad-13cee082a21a}</Project>
+      <Name>VTCT.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,9 +31,8 @@ namespace VTCT.Data
         {
             return new ApplicationDbContext();
         }
-
-        public DbSet<Note> Notes { get; set; } //<--- Add this
-
+        // Data tables go here
+        public DbSet<VHSTape> VHSTapes { get; set; } 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
