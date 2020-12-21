@@ -38,7 +38,7 @@ namespace VTCT.Services
 			}
 		}
 
-		// GET VHSTAPES
+		// GET VHSTAPES LIST
 		public IEnumerable<VHSTapeListItem> GetVHSTapes() 
 		{
 			using (var ctx = new ApplicationDbContext()) 
@@ -63,5 +63,65 @@ namespace VTCT.Services
 			}
 		
 		}
+
+		// GET VHSTAPES DETAIL (BY ID)
+		public VHSTapeDetail GetVHSTapeById(int id) 
+		{
+			using (var ctx = new ApplicationDbContext()) 
+			{
+				var entity =
+					ctx
+						.VHSTapes
+						.Single(e => e.VHSTapeID == id && e.VHSOwnerID == _userID);
+				return
+					new VHSTapeDetail
+					{
+						VHSTapeID = entity.VHSTapeID,
+						VHSTitle = entity.VHSTitle,
+						VHSDescription = entity.VHSDescription,
+						VHSGenre = entity.VHSGenre,
+						CollectionName = entity.CollectionName,
+						CreatedUtc = entity.CreatedUtc,
+						ModifiedUtc = entity.ModifiedUtc
+					};
+			}
+		}
+
+		// UPDATE VHSTAPE
+		public bool UpdateVHSTape(VHSTapeEdit model) 
+		{
+			using (var ctx = new ApplicationDbContext()) 
+			{
+				var entity =
+					ctx
+						.VHSTapes
+						.Single(e => e.VHSTapeID == model.VHSTapeID && e.VHSOwnerID == _userID);
+
+				entity.VHSTitle = model.VHSTitle;
+				entity.VHSDescription = model.VHSDescription;
+				entity.VHSGenre = model.VHSGenre;
+				entity.CollectionName = model.CollectionName;
+				entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+				return ctx.SaveChanges() == 1;
+			}
+		}
+
+		// DELETE VHSTAPE
+		public bool DeleteVHSTape(int vhsTapeId) 
+		{
+			using (var ctx = new ApplicationDbContext()) 
+			{
+				var entity =
+					ctx
+						.VHSTapes
+						.Single(e => e.VHSTapeID == vhsTapeId && e.VHSOwnerID == _userID);
+
+				ctx.VHSTapes.Remove(entity);
+
+				return ctx.SaveChanges() == 1;
+			}
+		}
+
 	}
 }

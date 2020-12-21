@@ -237,6 +237,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\VHSTape\Index.cshtml" />
     <Content Include="Views\VHSTape\Create.cshtml" />
+    <Content Include="Views\VHSTape\Details.cshtml" />
+    <Content Include="Views\VHSTape\Edit.cshtml" />
+    <Content Include="Views\VHSTape\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

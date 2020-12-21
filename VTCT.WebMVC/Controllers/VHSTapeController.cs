@@ -65,5 +65,76 @@ namespace VTCT.WebMVC.Controllers
 
             return View(model);
         }
+
+        // EDIT VHSTape
+        public ActionResult Edit(int id) 
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VHSTapeService(userId);
+            var detail = service.GetVHSTapeById(id);
+            var model =
+                new VHSTapeEdit
+                {
+                    VHSTapeID = detail.VHSTapeID,
+                    VHSTitle = detail.VHSTitle,
+                    VHSDescription = detail.VHSDescription,
+                    VHSGenre = detail.VHSGenre,
+                    CollectionName = detail.CollectionName
+                };
+
+            return View(model);
+        }
+
+        // EDIT VHSTape Overload
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, VHSTapeEdit model) 
+        {
+            if (!ModelState.IsValid) return View(model);
+
+			if (model.VHSTapeID != id)
+			{
+                ModelState.AddModelError("", "ID mismatch");
+                return View(model);
+			}
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VHSTapeService(userId);
+
+            if (service.UpdateVHSTape(model)) 
+            {
+                TempData["SaveResult"] = "Your VHS Tape was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your VHS Tape could not be updated.");
+            return View();
+        }
+
+        // DELETE VHSTape
+        public ActionResult Delete(int id)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VHSTapeService(userId);
+            var model = service.GetVHSTapeById(id);
+
+            return View(model);
+        }
+
+        // DELETE VHSTape from Database
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteVHSTape(int id) 
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VHSTapeService(userId);
+            service.DeleteVHSTape(id);
+
+            TempData["SaveResult"] = "Your VHS Tape was deleted";
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

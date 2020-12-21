@@ -1,0 +1,74 @@
+﻿@model VTCT.Models.VHSTapeDetail
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VHSTapeDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VHSTapeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VHSTapeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VHSTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VHSTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VHSDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VHSDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VHSGenre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VHSGenre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
