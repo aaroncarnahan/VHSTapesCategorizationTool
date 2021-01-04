@@ -19,7 +19,7 @@ namespace VTCT.Services
 		}
 
 		// CREATE COLLECTION
-		public bool CreateVHSTape(CollectionCreate model)
+		public bool CreateCollection(CollectionCreate model)
 		{
 			var entity =
 				new Collection()
@@ -46,6 +46,7 @@ namespace VTCT.Services
 					ctx
 						.Collections
 						.Where(e => e.CollectionOwnerID == _userID)
+
 						.Select(
 							e =>
 								new CollectionListItem
@@ -61,7 +62,8 @@ namespace VTCT.Services
 
 		}
 
-		// GET COLLECTION DETAIL (BY ID)
+
+		//GET COLLECTION DETAIL(BY ID)
 		public CollectionDetail GetCollectionById(int id)
 		{
 			using (var ctx = new ApplicationDbContext())
@@ -70,6 +72,7 @@ namespace VTCT.Services
 					ctx
 						.Collections
 						.Single(e => e.CollectionID == id && e.CollectionOwnerID == _userID);
+
 				return
 					new CollectionDetail
 					{
@@ -77,10 +80,69 @@ namespace VTCT.Services
 						CollectionName = entity.CollectionName,
 						CollectionDescription = entity.CollectionDescription,
 						CreatedUtc = entity.CreatedUtc,
-						ModifiedUtc = entity.ModifiedUtc
+						ModifiedUtc = entity.ModifiedUtc,
+						Films = entity.CollectionTapes.Select(f => new VHSTapeListItem
+						{
+							VHSTapeID = f.VHSTape.VHSTapeID,
+							VHSTitle = f.VHSTape.VHSTitle,
+							VHSDescription = f.VHSTape.VHSDescription,
+							VHSGenre = f.VHSTape.VHSGenre,
+							CollectionName = f.VHSTape.CollectionTapes.Single().Collection.CollectionName,
+							CreatedUtc = f.VHSTape.CreatedUtc
+						}).ToList()
 					};
 			}
 		}
+
+		// TESTING -------------------------------------------------
+		//public CollectionTapeDetail GetCollectionWithTapes(int id) 
+		//{
+		//	using (var ctx = new ApplicationDbContext()) 
+		//	{
+		//		var entity =
+		//			ctx
+		//				.CollectionTapes
+		//				.Single(e => e.Collection.CollectionID == id && e.Collection.CollectionOwnerID == _userID);
+
+		//		return
+		//			new CollectionTapeDetail
+		//			{
+		//				CollectionTapeID = entity.CollectionTapeID,
+		//				CollectionID = entity.CollectionID,
+		//				VHSTapeID = entity.VHSTapeID
+		//			};
+
+		//	}
+		//}
+		// TESTING -------------------------------------------------
+
+		// TESTING -------------------------------------------------
+		// GET COLLECTION LIST
+		public IEnumerable<VHSTapeListItem> GetCollectionWithTapes1()
+		{
+			using (var ctx = new ApplicationDbContext())
+			{
+				var query =
+					ctx
+						.CollectionTapes
+						.Where(e => e.VHSTape.VHSOwnerID == _userID)
+
+						.Select(
+							e =>
+								new VHSTapeListItem
+								{
+									VHSTapeID = e.VHSTapeID,
+									VHSTitle = e.VHSTape.VHSTitle,
+									VHSGenre = e.VHSTape.VHSGenre,
+									VHSDescription = e.VHSTape.VHSDescription,
+									CollectionName = e.VHSTape.CollectionTapes.FirstOrDefault().Collection.CollectionName
+								}
+						);
+				return query.ToArray();
+			}
+
+		}
+		// TESTING -------------------------------------------------
 
 		// UPDATE COLLECTION
 		public bool UpdateCollection(CollectionEdit model)

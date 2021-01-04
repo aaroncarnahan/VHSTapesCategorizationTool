@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,11 @@ namespace VTCT.Data
 		[Required]
 		public string VHSGenre { get; set; }
 
-		[Display(Name = "Collection")]
-		public string CollectionName { get; set; }
-
-
 		[Required]
 		public DateTimeOffset CreatedUtc { get; set; }
 
 		public DateTimeOffset? ModifiedUtc { get; set; }
+
+		public virtual List<CollectionTape> CollectionTapes { get; set; } = new List<CollectionTape>();
 	}
 }

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionService.cs" />
+    <Compile Include="CollectionTapeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VHSTapeService.cs" />
   </ItemGroup>

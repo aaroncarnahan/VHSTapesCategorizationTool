@@ -15,7 +15,7 @@ namespace VTCT.Data
 		public Guid CollectionOwnerID { get; set; }
 		[Required]
 		public string CollectionName { get; set; }
-		[Required]
+
 		public string CollectionDescription { get; set; }
 
 		[Required]
@@ -23,6 +23,6 @@ namespace VTCT.Data
 
 		public DateTimeOffset? ModifiedUtc { get; set; }
 
-		public virtual ICollection<VHSTape> VHSTapes { get; set; }
+		public virtual List<CollectionTape> CollectionTapes { get; set; } = new List<CollectionTape>();
 	}
 }

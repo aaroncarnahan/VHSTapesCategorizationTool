@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VHSTapeController.cs" />
@@ -240,6 +241,11 @@
     <Content Include="Views\VHSTape\Details.cshtml" />
     <Content Include="Views\VHSTape\Edit.cshtml" />
     <Content Include="Views\VHSTape\Delete.cshtml" />
+    <Content Include="Views\Collection\Create.cshtml" />
+    <Content Include="Views\Collection\Tapes.cshtml" />
+    <Content Include="Views\Collection\Edit.cshtml" />
+    <Content Include="Views\Collection\Index.cshtml" />
+    <Content Include="Views\Collection\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

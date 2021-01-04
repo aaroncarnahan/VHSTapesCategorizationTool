@@ -34,6 +34,7 @@ namespace VTCT.Data
         // Data tables go here
         public DbSet<VHSTape> VHSTapes { get; set; } 
         public DbSet<Collection> Collections { get; set; }
+        public DbSet<CollectionTape> CollectionTapes { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

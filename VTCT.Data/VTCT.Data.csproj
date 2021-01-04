@@ -69,6 +69,34 @@
     <Compile Include="Migrations\202012171607531_hello1.Designer.cs">
       <DependentUpon>202012171607531_hello1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012220125403_new migro.cs" />
+    <Compile Include="Migrations\202012220125403_new migro.Designer.cs">
+      <DependentUpon>202012220125403_new migro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012281754494_newmigro2.cs" />
+    <Compile Include="Migrations\202012281754494_newmigro2.Designer.cs">
+      <DependentUpon>202012281754494_newmigro2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012281821322_newmigro7.cs" />
+    <Compile Include="Migrations\202012281821322_newmigro7.Designer.cs">
+      <DependentUpon>202012281821322_newmigro7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012291446483_lordohlord.cs" />
+    <Compile Include="Migrations\202012291446483_lordohlord.Designer.cs">
+      <DependentUpon>202012291446483_lordohlord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012291935172_nonRequired.cs" />
+    <Compile Include="Migrations\202012291935172_nonRequired.Designer.cs">
+      <DependentUpon>202012291935172_nonRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012292007044_wtf3.cs" />
+    <Compile Include="Migrations\202012292007044_wtf3.Designer.cs">
+      <DependentUpon>202012292007044_wtf3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012292033143_poops.cs" />
+    <Compile Include="Migrations\202012292033143_poops.Designer.cs">
+      <DependentUpon>202012292033143_poops.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VHSTape.cs" />
@@ -86,6 +114,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012171607531_hello1.resx">
       <DependentUpon>202012171607531_hello1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012220125403_new migro.resx">
+      <DependentUpon>202012220125403_new migro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012281754494_newmigro2.resx">
+      <DependentUpon>202012281754494_newmigro2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012281821322_newmigro7.resx">
+      <DependentUpon>202012281821322_newmigro7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012291446483_lordohlord.resx">
+      <DependentUpon>202012291446483_lordohlord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012291935172_nonRequired.resx">
+      <DependentUpon>202012291935172_nonRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012292007044_wtf3.resx">
+      <DependentUpon>202012292007044_wtf3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012292033143_poops.resx">
+      <DependentUpon>202012292033143_poops.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

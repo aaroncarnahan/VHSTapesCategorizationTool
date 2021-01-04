@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace VTCT.Models
 {
-	public class CollectionDetail
+	public class CollectionListItem
 	{
 		public int CollectionID { get; set; }
+		
 		public string CollectionName { get; set; }
+		
 		public string CollectionDescription { get; set; }
 
 		[Display(Name = "Created")]
 		public DateTimeOffset CreatedUtc { get; set; }
-
-		[Display(Name = "Modified")]
-		public DateTimeOffset? ModifiedUtc { get; set; }
 
 	}
 }

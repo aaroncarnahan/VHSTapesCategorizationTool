@@ -1,0 +1,108 @@
+﻿@model VTCT.Models.CollectionDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CollectionDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().VHSTapeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().VHSTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().VHSDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().VHSGenre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().CollectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Films.First().CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Films)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VHSTapeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VHSTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VHSDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VHSGenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

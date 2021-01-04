@@ -1,0 +1,51 @@
+﻿@model IEnumerable<VTCT.Models.CollectionListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CollectionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CollectionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CollectionID })
+        </td>
+    </tr>
+}
+
+</table>

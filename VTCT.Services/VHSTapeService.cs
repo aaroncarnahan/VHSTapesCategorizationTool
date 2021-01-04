@@ -12,13 +12,13 @@ namespace VTCT.Services
 	{
 		private readonly Guid _userID;
 
-		public VHSTapeService(Guid userId) 
+		public VHSTapeService(Guid userId)
 		{
 			_userID = userId;
 		}
 
 		// CREATE VHSTAPE
-		public bool CreateVHSTape(VHSTapeCreate model) 
+		public bool CreateVHSTape(VHSTapeCreate model)
 		{
 			var entity =
 				new VHSTape()
@@ -27,21 +27,59 @@ namespace VTCT.Services
 					VHSTitle = model.VHSTitle,
 					VHSDescription = model.VHSDescription,
 					VHSGenre = model.VHSGenre,
-					CollectionName = model.CollectionName,
 					CreatedUtc = DateTimeOffset.Now
 				};
 
-			using (var ctx = new ApplicationDbContext()) 
+			using (var ctx = new ApplicationDbContext())
 			{
 				ctx.VHSTapes.Add(entity);
+				ctx.SaveChanges();
+				int id = ctx.VHSTapes.AsEnumerable().Last().VHSTapeID;
+
+				int CollectionId;
+
+				if (ctx.Collections.Any(e => e.CollectionName == model.CollectionName))
+				{
+					CollectionId =
+						ctx
+					.Collections
+						.Where(e => e.CollectionName == model.CollectionName).FirstOrDefault().CollectionID;
+				}
+				else
+				{
+					var entity2 =
+					new Collection()
+					{
+						CollectionOwnerID = _userID,
+						CollectionName = model.CollectionName,
+						//CollectionDescription = model.CollectionDescription,
+						CreatedUtc = DateTimeOffset.Now
+					};
+
+
+					ctx.Collections.Add(entity2);
+					ctx.SaveChanges();
+					CollectionId = ctx.Collections.AsEnumerable().Last().CollectionID;
+
+				}
+
+				CollectionTape ct = new CollectionTape
+				{
+					VHSTapeID = id,
+					CollectionID = CollectionId
+				};
+				ctx.CollectionTapes.Add(ct);
 				return ctx.SaveChanges() == 1;
+
+				//All of this function of creating junction objects and catagories if they dont' exist
+				//Will have to be done on edit/update. So on edit
 			}
 		}
 
 		// GET VHSTAPES LIST
-		public IEnumerable<VHSTapeListItem> GetVHSTapes() 
+		public IEnumerable<VHSTapeListItem> GetVHSTapes()
 		{
-			using (var ctx = new ApplicationDbContext()) 
+			using (var ctx = new ApplicationDbContext())
 			{
 				var query =
 					ctx
@@ -55,19 +93,19 @@ namespace VTCT.Services
 									VHSTitle = e.VHSTitle,
 									VHSDescription = e.VHSDescription,
 									VHSGenre = e.VHSGenre,
-									CollectionName = e.CollectionName,
+									CollectionName = e.CollectionTapes.FirstOrDefault().Collection.CollectionName,
 									CreatedUtc = e.CreatedUtc
 								}
 						);
 				return query.ToArray();
 			}
-		
+
 		}
 
 		// GET VHSTAPES DETAIL (BY ID)
-		public VHSTapeDetail GetVHSTapeById(int id) 
+		public VHSTapeDetail GetVHSTapeById(int id)
 		{
-			using (var ctx = new ApplicationDbContext()) 
+			using (var ctx = new ApplicationDbContext())
 			{
 				var entity =
 					ctx
@@ -80,7 +118,7 @@ namespace VTCT.Services
 						VHSTitle = entity.VHSTitle,
 						VHSDescription = entity.VHSDescription,
 						VHSGenre = entity.VHSGenre,
-						CollectionName = entity.CollectionName,
+						CollectionName = entity.CollectionTapes.FirstOrDefault().Collection.CollectionName,
 						CreatedUtc = entity.CreatedUtc,
 						ModifiedUtc = entity.ModifiedUtc
 					};
@@ -88,9 +126,9 @@ namespace VTCT.Services
 		}
 
 		// UPDATE VHSTAPE
-		public bool UpdateVHSTape(VHSTapeEdit model) 
+		public bool UpdateVHSTape(VHSTapeEdit model)
 		{
-			using (var ctx = new ApplicationDbContext()) 
+			using (var ctx = new ApplicationDbContext())
 			{
 				var entity =
 					ctx
@@ -100,7 +138,6 @@ namespace VTCT.Services
 				entity.VHSTitle = model.VHSTitle;
 				entity.VHSDescription = model.VHSDescription;
 				entity.VHSGenre = model.VHSGenre;
-				entity.CollectionName = model.CollectionName;
 				entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
 				return ctx.SaveChanges() == 1;
@@ -108,9 +145,9 @@ namespace VTCT.Services
 		}
 
 		// DELETE VHSTAPE
-		public bool DeleteVHSTape(int vhsTapeId) 
+		public bool DeleteVHSTape(int vhsTapeId)
 		{
-			using (var ctx = new ApplicationDbContext()) 
+			using (var ctx = new ApplicationDbContext())
 			{
 				var entity =
 					ctx

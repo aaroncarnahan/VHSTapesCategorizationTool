@@ -54,15 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CollectionCreate.cs" />
-    <Compile Include="CollectionDetail.cs" />
-    <Compile Include="CollectionEdit.cs" />
-    <Compile Include="CollectionListItem.cs" />
+    <Compile Include="CollectionTape\CollectionTapeListItem.cs" />
+    <Compile Include="Collection\CollectionCreate.cs" />
+    <Compile Include="Collection\CollectionDetail.cs" />
+    <Compile Include="Collection\CollectionEdit.cs" />
+    <Compile Include="Collection\CollectionListItem.cs" />
+    <Compile Include="CollectionTape\CollectionTapeCreate.cs" />
+    <Compile Include="CollectionTape\CollectionTapeDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VHSTapeCreate.cs" />
-    <Compile Include="VHSTapeDetail.cs" />
-    <Compile Include="VHSTapeEdit.cs" />
-    <Compile Include="VHSTapeListItem.cs" />
+    <Compile Include="VHSTape\VHSTapeCreate.cs" />
+    <Compile Include="VHSTape\VHSTapeDetail.cs" />
+    <Compile Include="VHSTape\VHSTapeEdit.cs" />
+    <Compile Include="VHSTape\VHSTapeListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

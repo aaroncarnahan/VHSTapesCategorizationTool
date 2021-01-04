@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace VTCT.Models
 {
-	public class CollectionListItem
+	public class CollectionDetail
 	{
 		public int CollectionID { get; set; }
-		
-		public Guid CollectionOwnerID { get; set; }
-		
 		public string CollectionName { get; set; }
-		
 		public string CollectionDescription { get; set; }
 
 		[Display(Name = "Created")]
 		public DateTimeOffset CreatedUtc { get; set; }
+
+		[Display(Name = "Modified")]
+		public DateTimeOffset? ModifiedUtc { get; set; }
+
+		public List<VHSTapeListItem> Films { get; set; }
 
 	}
 }
