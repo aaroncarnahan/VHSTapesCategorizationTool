@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Collection.cs" />
     <Compile Include="CollectionTape.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202012161836468_InitialCreate.cs" />
     <Compile Include="Migrations\202012161836468_InitialCreate.Designer.cs">

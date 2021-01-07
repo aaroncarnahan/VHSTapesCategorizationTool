@@ -61,6 +61,10 @@
     <Compile Include="Collection\CollectionListItem.cs" />
     <Compile Include="CollectionTape\CollectionTapeCreate.cs" />
     <Compile Include="CollectionTape\CollectionTapeDetail.cs" />
+    <Compile Include="Comment\CommentCreate.cs" />
+    <Compile Include="Comment\CommentDetail.cs" />
+    <Compile Include="Comment\CommentEdit.cs" />
+    <Compile Include="Comment\CommentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VHSTape\VHSTapeCreate.cs" />
     <Compile Include="VHSTape\VHSTapeDetail.cs" />
