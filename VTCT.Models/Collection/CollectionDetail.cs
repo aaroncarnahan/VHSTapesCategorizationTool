@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VTCT.Models.Comment;
 
 namespace VTCT.Models
 {
@@ -20,6 +21,7 @@ namespace VTCT.Models
 		public DateTimeOffset? ModifiedUtc { get; set; }
 
 		public List<VHSTapeListItem> Films { get; set; }
+		public List<CommentListItem> CommentList { get; set; }
 
 	}
 }

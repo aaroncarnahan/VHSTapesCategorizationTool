@@ -10,7 +10,6 @@ namespace VTCT.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "VTCT.Data.ApplicationDbContext";
         }
 
         protected override void Seed(VTCT.Data.ApplicationDbContext context)

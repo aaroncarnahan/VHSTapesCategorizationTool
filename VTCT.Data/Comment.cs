@@ -19,6 +19,9 @@ namespace VTCT.Data
 		public string CommentContent { get; set; }
 
 		[Required]
+		public int CollectionID { get; set; }
+
+		[Required]
 		public DateTimeOffset CreatedUtc { get; set; }
 
 		public DateTimeOffset? ModifiedUtc { get; set; }

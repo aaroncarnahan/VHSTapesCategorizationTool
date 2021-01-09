@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VTCT.Data;
 using VTCT.Models;
+using VTCT.Models.Comment;
 
 namespace VTCT.Services
 {
@@ -89,7 +90,15 @@ namespace VTCT.Services
 							VHSGenre = f.VHSTape.VHSGenre,
 							CollectionName = f.VHSTape.CollectionTapes.Single().Collection.CollectionName,
 							CreatedUtc = f.VHSTape.CreatedUtc
+						}).ToList(),
+						//TEST ............................
+						CommentList = entity.Comments.Select(f => new CommentListItem
+						{
+							CommentID = f.CommentID,
+							CommentContent = f.CommentContent,
+							CreatedUtc = f.CreatedUtc
 						}).ToList()
+						//TEST ............................
 					};
 			}
 		}

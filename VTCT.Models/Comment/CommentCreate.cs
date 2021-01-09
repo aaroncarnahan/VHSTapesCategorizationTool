@@ -9,8 +9,11 @@ namespace VTCT.Models
 {
 	public class CommentCreate
 	{
+		
 		[Required]
 		public string CommentContent { get; set; }
+		[Required]
+		public int CollectionID { get; set; }
 
 	}
 }

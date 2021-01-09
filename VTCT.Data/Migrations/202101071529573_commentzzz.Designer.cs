@@ -7,13 +7,13 @@ namespace VTCT.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class newmigro2 : IMigrationMetadata
+    public sealed partial class commentzzz : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newmigro2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(commentzzz));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012281754494_newmigro2"; }
+            get { return "202101071529573_commentzzz"; }
         }
         
         string IMigrationMetadata.Source

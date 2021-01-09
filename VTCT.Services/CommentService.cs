@@ -25,6 +25,7 @@ namespace VTCT.Services
                 {
                     CommentOwnerID = _userId,
                     CommentContent = model.CommentContent,
+                    CollectionID = model.CollectionID,
                     CreatedUtc = DateTimeOffset.Now
                 };
 

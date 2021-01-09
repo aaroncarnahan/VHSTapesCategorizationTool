@@ -96,10 +96,26 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
-            
+
         </tr>
     }
+    @*TESTING ................*@
+    @foreach (var item in Model.CommentList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
 
+        </tr>
+    }
+    @*TESTING ................*@
 </table>
 
 <p>

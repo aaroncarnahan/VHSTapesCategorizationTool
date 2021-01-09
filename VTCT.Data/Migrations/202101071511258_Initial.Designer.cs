@@ -7,13 +7,13 @@ namespace VTCT.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class wtf3 : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(wtf3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012292007044_wtf3"; }
+            get { return "202101071511258_Initial"; }
         }
         
         string IMigrationMetadata.Source
