@@ -31,6 +31,75 @@ textarea {
     background-color: #171717;
 }
 
-.jumbotron {
-    background-color: #171717;
+.navbar-inverse .navbar-nav > li > a {
+        color: #00beae;
 }
+
+.jumbotron {
+    background-color: #121212;
+}
+
+.logo {
+    padding-right: 20px;
+}
+
+.main_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+hr {
+    border-top: 1px dashed #00beae;
+}
+
+.spacer {
+    width: 100%;
+    height: 40px;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.table {
+    border: 2px solid black;
+}
+
+
+table, th, td, thead {
+    border: 1px solid #00beae;
+}
+
+.tableheader {
+    color: white;
+}
+
+.options a{
+    color: darkgray;
+    font-size: 11px;
+    border: 1px solid gray;
+    padding: 3px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+.form-control {
+    background-color: black;
+    color: #00beae;
+    border: 2px solid #00beae;
+}
+
+.back a{
+    color: #00beae;
+   
+}
+
+.checkbox {
+   margin-left: 160px; 
+}
+
+form-group submit {
+    float: right;
+}
+

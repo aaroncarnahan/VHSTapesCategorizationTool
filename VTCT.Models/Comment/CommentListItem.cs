@@ -9,7 +9,9 @@ namespace VTCT.Models.Comment
 {
 	public class CommentListItem
 	{
+		[Display(Name = "ID")]
 		public int CommentID { get; set; }
+		[Display(Name = "Comment")]
 		public string CommentContent { get; set; }
 
 		[Display(Name = "Created")]

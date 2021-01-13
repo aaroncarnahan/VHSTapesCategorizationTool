@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<div class="spacer"></div>
+<div class="spacer"></div>
 <h2>Details</h2>
-
+<div class="spacer"></div>
 <div>
-    <h4>CollectionDetail</h4>
-    <hr />
+    @*<h4>CollectionDetail</h4>*@
+    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CollectionID)
@@ -52,8 +53,9 @@
 
     </dl>
 </div>
+<div class="spacer"></div>
 <table class="table">
-    <tr>
+    <tr class="tableheader">
         <th>
             @Html.DisplayNameFor(model => model.Films.First().VHSTapeID)
         </th>
@@ -99,26 +101,44 @@
 
         </tr>
     }
-    @*TESTING ................*@
-    @foreach (var item in Model.CommentList)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-
-        </tr>
-    }
-    @*TESTING ................*@
 </table>
+<div class="spacer"></div>
+<h2>Comments</h2>
+<div class="spacer"></div>
+@*TESTING ................*@
+@*@foreach (var item in Model.CommentList)
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </tr>
+        </table>
+    }*@
+@*TESTING ................*@
+
+@foreach (var item in Model.CommentList)
+{
+<p>From Anonymous @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
+    @*@Html.DisplayFor(modelItem => item.CommentID)*@
+
+<p>"@Html.DisplayFor(modelItem => item.CommentContent)"</p>
+
+<div class="spacer"></div>
+
+}
+
+
+
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

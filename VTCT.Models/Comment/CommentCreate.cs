@@ -11,8 +11,10 @@ namespace VTCT.Models
 	{
 		
 		[Required]
+		[Display(Name = "Comment")]
 		public string CommentContent { get; set; }
 		[Required]
+		[Display(Name = "ID")]
 		public int CollectionID { get; set; }
 
 	}

@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="spacer"></div>
+<div class="spacer"></div>
+<h2>My Collections</h2>
 
-<h2>Index</h2>
+<div class="spacer"></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
-    <tr>
+    <tr class="tableheader">
         <th>
             @Html.DisplayNameFor(model => model.CollectionID)
         </th>
@@ -26,26 +26,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CollectionID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CollectionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CollectionDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CollectionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CollectionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CollectionID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td class="options">
+                @Html.ActionLink("Edit", "Edit", new { id = item.CollectionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CollectionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CollectionID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div class="spacer"></div>
+<div class="buttons">
+    @Html.ActionLink("Create New Collection", "Create", null, new { @class = "btn btn-default" })
+</div>
+<div class="spacer"></div>

@@ -3,12 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="spacer"></div>
+<div class="spacer"></div>
+<h2>My VHS Tapes</h2>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
 @*THIS SHOWS A SUCCESS MESSAGE WHEN A VHS TAPE IS CREATED*@
 @if (TempData.ContainsKey("SaveResult"))
@@ -22,8 +21,10 @@
     </div>
 }
 
+<div class="spacer"></div>
+
 <table class="table">
-    <tr>
+    <tr class="tableheader">
         <th>
             @Html.DisplayNameFor(model => model.VHSTapeID)
         </th>
@@ -66,12 +67,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VHSTapeID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.VHSTapeID }) |
+            <td class="options">
+                @Html.ActionLink("Edit", "Edit", new { id = item.VHSTapeID })
+                @Html.ActionLink("Details", "Details", new { id = item.VHSTapeID })
                 @Html.ActionLink("Delete", "Delete", new { id = item.VHSTapeID })
             </td>
         </tr>
     }
 
 </table>
+
+<div class="spacer"></div>
+<div class="buttons">
+    @Html.ActionLink("Add New VHS", "Create", null, new { @class = "btn btn-default" })
+</div>
+<div class="spacer"></div>

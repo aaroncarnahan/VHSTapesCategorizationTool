@@ -9,9 +9,11 @@ namespace VTCT.Models.Comment
 {
 	public class CommentDetail
 	{
+		[Display(Name = "ID")]
 		public int CommentID { get; set; }
-
+		[Display(Name = "Content")]
 		public string CommentContent { get; set; }
+		
 
 		[Display(Name = "Created")]
 		public DateTimeOffset CreatedUtc { get; set; }

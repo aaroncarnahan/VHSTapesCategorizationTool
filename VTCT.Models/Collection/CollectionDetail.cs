@@ -10,8 +10,11 @@ namespace VTCT.Models
 {
 	public class CollectionDetail
 	{
+		[Display(Name = "ID")]
 		public int CollectionID { get; set; }
+		[Display(Name = "Collection")]
 		public string CollectionName { get; set; }
+		[Display(Name = "Description")]
 		public string CollectionDescription { get; set; }
 
 		[Display(Name = "Created")]

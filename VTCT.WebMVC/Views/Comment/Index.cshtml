@@ -3,14 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class="spacer"></div>
+<div class="spacer"></div>
 <h2>Index</h2>
+<div class="spacer"></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
-    <tr>
+    <tr class="tableheader">
         <th>
             @Html.DisplayNameFor(model => model.CommentID)
         </th>
@@ -23,23 +22,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            @*Temporarily not working*@
+            <td class="options">
+                @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div class="spacer"></div>
+<div class="buttons">
+    @Html.ActionLink("Add New Comment", "Create", null, new { @class = "btn btn-default" })
+</div>
+<div class="spacer"></div>
